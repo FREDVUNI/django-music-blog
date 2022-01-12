@@ -1,0 +1,64 @@
+{% extends 'music/base.html' %}
+{% load static %}
+{% block title %}
+    Available Songs
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+           <div class="card mt-2 mb-4">
+            <div class="d-flex p-4">
+                <a href="{% url 'music:index' %}" class="text-dark mr-3">
+                    <span class="fas fa-play-circle fa-xs text-dark"></span> 
+                    view all albums
+                </a>
+                <a href="{% url 'music:addSong' %}" class="float-right">
+                    <span class="fa fa-plus fa-xs text-dark"></span> 
+                    Add New Song
+                </a>
+            </div>
+            <div class="card-body p-4">
+                <h5>All Available Songs <span class="text-success"> ({{ songs.count }})</span></h5>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Audio File</th>
+                            <th>Favorite</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if songs %}
+                        {% for song in songs %}
+                        <tr>
+                            <td>{{ song.song_title }}</td>
+                            <td>{{ song.file_type }}</td>
+                            <td>
+                               {% if song.is_favorite == False %}
+                                    <i class="far fa-star"></i>
+                                {% else %}
+                                    <i class="fa fa-star"></i>    
+                               {% endif %}
+                            </td>
+                            <td>
+                                <a href="{% url 'music:updateSong' song.id %}" class="btn btn-outline-secondary btn-sm ml-2 rounded-circle">
+                                    <span class="fas fa-pencil-alt"></span>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        {% else %}
+                            <h6 class="text-danger">There Are No Songs Available.</h6>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+           </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

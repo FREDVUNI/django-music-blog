@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'music/images/favicon.png' %}" type="image/x-icon">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'music/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'music/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'music/css/fontawesome-all.css' %}">
+    <script src="{% static 'music/js/jquery.min.js' %}"></script>
+    <script src="{% static 'music/js/bootstrap.min.js' %}"></script>
+</head>
+
+<header id="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href="{% url 'music:index' %}" class="navbar-brand">
+            viberr
+         </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'music:index' %}"><span class="fas fa-play"></span>&nbsp; Albums </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'music:songs' %}"><span class="fa fa-music"></span>&nbsp; Songs</a>
+            </li>
+            <form class="form-inline my-2 my-lg-0 ml-5" action="{% url 'music:search' %}" method="GET">
+                <input class="form-control form-control-sm mr-sm-2" type="search" name="q" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-secondary btn-sm my-2 my-sm-0" type="submit">Search</button>
+              </form>
+          </ul>
+
+          <ul class="navbar-nav navbar-right">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'music:addAlbum' %}"><span class="fa fa-plus"></span>&nbsp; Add Album </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><span class="fa fa-power-off"></span>&nbsp; Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+</header>
+
+<body>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

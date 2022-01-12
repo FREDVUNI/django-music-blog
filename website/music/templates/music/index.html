@@ -1,0 +1,32 @@
+{% extends 'music/base.html' %}
+{% load static %}
+{% block title %}
+    HOME
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+    {% if albums %}
+        {% for album in albums %}
+            <div class="col-md-3 p-3">
+                <div class="card">
+                    <a href="{% url 'music:detail' album.slug %}">
+                        <img src="{{ album.album_logo.url }}" alt="" class="w-100 pb-3">
+                    </a>
+                    <h5 class="pl-3 font-weight-bold">{{ album.album_title }}</h5>
+                    <h6 class="pl-3">{{ album.artist }}</h6>
+                    <div class="d-flex pl-3 pb-3">
+                        <a href="{% url 'music:detail' album.slug %}" class="btn btn-outline-secondary btn-sm">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        {% else %}
+            <p class="font-weight-bold text-danger">There are no albums available.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

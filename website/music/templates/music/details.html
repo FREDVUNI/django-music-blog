@@ -1,0 +1,105 @@
+{% extends 'music/base.html' %}
+{% load static %}
+{% block title %}
+    {{ album.artist }} | {{ album.album_title }}
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <a href="{% url 'music:detail' album.slug %}">
+                    <img src="{{ album.album_logo.url }}" alt="" class="w-100 pb-3">
+                </a>
+                <h5 class="pl-3 font-weight-bold">{{ album.album_title }}</h5>
+                <h6 class="pl-3">{{ album.artist }}</h6>
+                <div class="d-flex pl-3 pb-3">
+                    <strong class="pr-2">Genre:</strong> {{ album.genre }}
+                </div>
+                    <div class="d-flex p-2">
+                        <form action="{% url 'music:deleteAlbum' album.id %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="album_id" value="{{ album.id }}">
+                            <button type="submit" class="btn btn-outline-secondary">
+                                <span class="fas fa-trash"></span>  Delete Album
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <div class="col-md-8">
+            <div class="d-flex mb-2 font-weight-bold">
+                <div class="ml-2">
+                    <a href="{% url 'music:index' %}" class="text-dark mr-5">
+                        <span class="fas fa-play-circle  fa-xs text-dark"></span> 
+                        view all
+                    </a>
+                    <a href="{% url 'music:updateAlbum' album.slug %}" class="text-dark mr-5">
+                        <span class="fa fa-pencil-alt fa-xs text-dark"></span> 
+                        Edit Album
+                    </a>
+                    <a href="{% url 'music:addSong' %}" class="float-right">
+                        <span class="fa fa-plus fa-xs text-dark"></span> 
+                        Add New Song
+                    </a>
+                </div>
+            </div>
+           <div class="card mt-2">
+            <div class="card-body p-4">
+                <h5>All Songs</h5>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Audio File</th>
+                            <th>Favorite</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if album.song_set.all %}
+                        {% for song in album.song_set.all %}
+                        <tr>
+                            <td>{{ song.song_title }}</td>
+                            <td>
+                                <button type="button" class="btn btn-outline-success">
+                                    <i class="fa fa-play fa-xs"></i> 
+                                    {{ song.file_type }}
+                                </button>
+                                
+                            </td>
+                            <td>
+                                <form action="{% url 'music:favorite' album.id %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="song_id" value="{{ song.id }}">
+                                        {% if song.is_favorite == False %}
+                                            <button type="submit" class="btn btn-outline-secondary btn-sm ml-2 rounded-circle">
+                                                <span class="far fa-star"></span>
+                                            </button>
+                                        {% else %}
+                                            <button type="submit" class="btn btn-secondary btn-sm ml-2 rounded-circle favorite">                           
+                                                <span class="fa fa-star"></span> 
+                                            </button>
+                                        {% endif %}
+                                </form>
+                            </td>
+                            <td>
+                                <a href="{% url 'music:updateSong' song.id %}" class="btn btn-outline-secondary btn-sm ml-2 rounded-circle">
+                                    <span class="fas fa-pencil-alt"></span>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        {% else %}
+                            <h6 class="text-danger">There Are No Songs Available.</h6>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+           </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
