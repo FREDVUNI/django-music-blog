@@ -1,4 +1,3 @@
-# django-music-blog
 # Django Music Album App
 
 This is a Django app that displays a collection of music albums, allows users to mark favorite albums, and provides a search functionality for finding albums by title or artist.
