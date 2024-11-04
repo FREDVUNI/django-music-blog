@@ -30,6 +30,11 @@ To add new albums, log in to the admin interface at `http://localhost:8000/admin
 
 If you would like to contribute to this project, please fork the repository and submit a pull request. 
 
-## Screenshot
+## Screenshots
 
-![viberr](https://user-images.githubusercontent.com/41730664/212619110-939b41bc-784c-4076-bbc9-31876ffe1ea3.png)
+![image](https://github.com/user-attachments/assets/f08ad562-6830-4929-bc39-72b22e2f30d1)
+![image](https://github.com/user-attachments/assets/187bfbf5-19a7-45cf-90ee-36784138d385)
+![image](https://github.com/user-attachments/assets/cebcada1-a930-430e-a7f9-b1809a55919a)
+
+
+
