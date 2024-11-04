@@ -4,14 +4,49 @@ This is a Django app that displays a collection of music albums, allows users to
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/FREDVUNI/django-music-album-app.git`
-2. Navigate to the project directory: `cd django-music-album-app`
-3. Install dependencies: `pip install -r requirements.txt`
-4. Create a `.env` file by copying `.env.example` and updating the values for your local environment: `cp .env.example .env`
-5. Set up your local PostgreSQL database by updating the `DATABASE_URL` value in the `.env` file
-6. Run database migrations: `python manage.py migrate`
-7. Create a superuser account: `python manage.py createsuperuser`
-8. Start the development server: `python manage.py runserver`
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/FREDVUNI/django-music-blog.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd django-music-blog/website
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Create a `.env` file by copying `.env.example` and updating the values for your local environment:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+5. Since we are using SQLite, ensure that your `DATABASES` setting in `settings.py` is configured correctly (the default settings provided in the template should work out of the box).
+
+6. Run database migrations:
+
+   ```bash
+   python manage.py migrate
+   ```
+
+7. Create a superuser account:
+
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+8. Start the development server:
+
+   ```bash
+   python manage.py runserver
+   ```
 
 ## Usage
 
@@ -35,6 +70,3 @@ If you would like to contribute to this project, please fork the repository and 
 ![image](https://github.com/user-attachments/assets/f08ad562-6830-4929-bc39-72b22e2f30d1)
 ![image](https://github.com/user-attachments/assets/187bfbf5-19a7-45cf-90ee-36784138d385)
 ![image](https://github.com/user-attachments/assets/cebcada1-a930-430e-a7f9-b1809a55919a)
-
-
-
