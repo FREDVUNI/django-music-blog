@@ -21,7 +21,7 @@
                         <form action="{% url 'music:deleteAlbum' album.id %}" method="post">
                             {% csrf_token %}
                             <input type="hidden" name="album_id" value="{{ album.id }}">
-                            <button type="submit" class="btn btn-outline-secondary">
+                            <button type="submit" class="btn btn-danger">
                                 <span class="fas fa-trash"></span>  Delete Album
                             </button>
                         </form>
