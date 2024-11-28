@@ -54,6 +54,12 @@ To access the app, navigate to `http://localhost:8000` in your browser. You can 
 
 To add new albums, log in to the admin interface at `http://localhost:8000/admin/` using your superuser account and add albums to the `Albums` table.
 
+## Screenshots
+
+![image](https://github.com/user-attachments/assets/f08ad562-6830-4929-bc39-72b22e2f30d1)
+![image](https://github.com/user-attachments/assets/187bfbf5-19a7-45cf-90ee-36784138d385)
+![image](https://github.com/user-attachments/assets/cebcada1-a930-430e-a7f9-b1809a55919a)
+
 ## Technologies Used
 
 - Django
@@ -64,9 +70,3 @@ To add new albums, log in to the admin interface at `http://localhost:8000/admin
 ## Contributing
 
 If you would like to contribute to this project, please fork the repository and submit a pull request. 
-
-## Screenshots
-
-![image](https://github.com/user-attachments/assets/f08ad562-6830-4929-bc39-72b22e2f30d1)
-![image](https://github.com/user-attachments/assets/187bfbf5-19a7-45cf-90ee-36784138d385)
-![image](https://github.com/user-attachments/assets/cebcada1-a930-430e-a7f9-b1809a55919a)
