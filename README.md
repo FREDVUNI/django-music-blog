@@ -56,8 +56,13 @@ To add new albums, log in to the admin interface at `http://localhost:8000/admin
 
 ## Screenshots
 
+### Screenshot 1
 ![image](https://github.com/user-attachments/assets/f08ad562-6830-4929-bc39-72b22e2f30d1)
+
+### Screenshot 2
 ![image](https://github.com/user-attachments/assets/187bfbf5-19a7-45cf-90ee-36784138d385)
+
+### Screenshot 3
 ![image](https://github.com/user-attachments/assets/cebcada1-a930-430e-a7f9-b1809a55919a)
 
 ## Technologies Used
