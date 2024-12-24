@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "postinstall": "python website/manage.py collectstatic --noinput"
+  }
+}
